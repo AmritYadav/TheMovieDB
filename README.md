@@ -11,9 +11,11 @@ The App is built using MVVM and Clean Architecture pattern.
 ## Tech Stack.
     1. Material Design
     2. Kotlin
-    3. Android Architecture Components
-    3. Retrofit
-    5. Glide
+    3. Coroutines
+    4. Android Architecture Components
+    5. Dagger Hilt
+    6. Retrofit
+    7. Glide
     
 ## Screenshots
 
