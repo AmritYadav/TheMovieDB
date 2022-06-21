@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk build_versions.target_sdk
+
+    defaultConfig {
+        minSdk build_versions.min_sdk
+        targetSdk build_versions.target_sdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+}
+
+dependencies {
+
+    implementation project(":data")
+    implementation project(":domain")
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+    implementation deps.kotlin.coroutines
+
+    implementation deps.javax_inject
+
+    implementation deps.network.retrofit
+    implementation deps.network.okhttp
+
+    implementation deps.network.gson
+
+    implementation deps.testing.junit
+    implementation deps.testing.coroutines
+    implementation deps.mockito.kotlin
+    implementation deps.mockito.inline
+}

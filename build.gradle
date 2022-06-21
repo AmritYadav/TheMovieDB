@@ -1,0 +1,22 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+
+    ext.nav_version = '2.3.5'
+
+    dependencies {
+        // Navigation Component Safe Args Plugin
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath deps.hilt.plugin
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.1.1' apply false
+    id 'com.android.library' version '7.1.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.6.20' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.6.20' apply false
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
